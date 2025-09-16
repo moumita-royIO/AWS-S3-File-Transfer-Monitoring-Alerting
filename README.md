@@ -43,7 +43,7 @@ terraform/
     └── outputs.tf
 ```
 
-** This project includes pre-built Lambda .zip deployment packages (immediate_alert.zip and weekly_summary.zip) inside the lambda/ folder.
+** This project includes pre-built Lambda .zip deployment packages (immediate_alert.zip and weekly_summary.zip).
 
 These .zip files contain the Python code required for the AWS Lambda functions. They are kept in the repository for ease of deployment with Terraform. If wish to rebuild, the following commands are handy:
 
