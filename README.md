@@ -8,14 +8,14 @@ The project has the following listed requirements which needs to be acheived usi
 
 3. Additionally a weekly email summarising the files in both storage accounts so I can have confidence the monitoring is working.
 
-Tech Stack Solution:
+**Tech Stack / Solution**
 
-Amazon S3 – File storage & validation
-AWS Lambda – File monitoring and alerting
-AWS SES – Email notifications
-Terraform – Infrastructure as code (IAC)
-Amazon EventBridge – Scheduled triggers for weekly summary Lambda to send reports
-AWS IAM (Identity and Access Management) – Manages permissions for the lambda roles with the least privilege required to access S3 and SES.
+- Amazon S3 – File storage & validation. Stores daily transferred files and allows size verification.
+- AWS Lambda – Monitors file uploads and triggers alerts for missing or undersized files.
+- AWS SES – Sends immediate alerts and weekly summary emails to the owner.
+- Terraform – Manages the infrastructure as code (IAC) for reproducibility and version control.
+- Amazon EventBridge – Schedules the weekly summary Lambda to automatically send reports.
+- AWS IAM – Provides least-privilege roles and permissions for Lambda functions to access S3 and SES securely.
 
 4. When terraform destroy deletes environment. Monitoring process must not be deleted when the environment is rebuilt.
 
@@ -30,10 +30,10 @@ terraform/
     ├── lambdas.tf 
     ├── S3.tf
     ├── event.tf
-    ├── terraform.tfvars  #   
+    ├── terraform.tfvars  #  assigns actual values to the variables declared in variables.tf
     ├── variables.tf     # declare variable from terraform.tfvars
     ├── provider.tf
-    └── lambda/          # immediate_alert.py, weekly_summary.py, utils.py
+    └── lambda/          
          ├── helper.py
          ├── immediate_alert.py
          └── weekly_summary.py    
