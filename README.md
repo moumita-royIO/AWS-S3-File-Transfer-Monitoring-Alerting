@@ -22,6 +22,7 @@ AWS IAM (Identity and Access Management) – Manages permissions for the lambda 
 This can be managed by seperate terrform state for monitoring and environment and using 
 '''lifecycle { prevent_destroy = true }''' in Terraform. This is Terraform's built-in feature to prevent resources from being destroyed accidentally:
 
+```bash
 terraform/
 │
 ├── monitoring/
@@ -40,4 +41,5 @@ terraform/
     ├── main.tf          # app servers, DBs, other env resources
     ├── variables.tf
     └── outputs.tf
+```
 
